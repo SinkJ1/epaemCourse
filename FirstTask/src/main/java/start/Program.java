@@ -4,17 +4,37 @@ import auto.Nissan;
 import auto.Volkswagen;
 import dao.AutoParkDao;
 import mainClass.Auto;
+import mainClass.BodyType;
+import mainClass.Type1;
+import mainClass.Type2;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Program {
     public static void main(String[] args){
 
-        Nissan nissanQashqai = new Nissan(1,"nissan qashqai",100,250,1233.50);
-        Volkswagen volkswagenPolo = new Volkswagen(2,"volksvagen polo",25,300,5000.78);
+        Type2 nissan = new Nissan(1,"nissan",123.2,1234,123);
+        Type2 nissan2 = new Nissan(1,"nissan1",126.2,1233,123);
+        Type2 nissan3 = new Nissan(1,"nissan2",123.2,1234,123);
+        Type2 nissan4 = new Nissan(1,"nissan3",128.2,1230,123);
+        Type2 nissan5 = new Nissan(1,"nissan4",122.2,1234,123);
+        Type1 nissan6 = new Volkswagen(1,"nissan4",124.2,1234,123);
 
-        AutoParkDao.getInstance().addInAutopark(nissanQashqai);
-        AutoParkDao.getInstance().addInAutopark(volkswagenPolo);
+        List<Auto> list = new ArrayList();
+        list.add(nissan);
+        list.add(nissan2);
+        list.add(nissan3);
+        list.add(nissan4);
+        list.add(nissan5);
+        list.add(nissan6);
 
-        AutoParkDao.getInstance().getAutos().stream().map(Auto::getCost).forEach(System.out::println);
+
+
+      AutoParkDao.getInstance().findAutoBySpeedRange(list,1234,1222).stream().forEach(System.out::println);
+
+
+
     }
 
 }
