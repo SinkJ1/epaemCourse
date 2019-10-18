@@ -5,10 +5,15 @@ import taksi.AutoPark;
 
 import java.util.Comparator;
 import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.stream.Collectors;
 
 public class AutoParkDao {
 
+    private static final Logger logger = LogManager.getLogger(AutoParkDao.class);
     private static AutoParkDao instance;
     private AutoPark autoPark = new AutoPark();
 
@@ -25,7 +30,11 @@ public class AutoParkDao {
     }
 
     public void addInAutopark(Auto auto){
+        try{
         autoPark.addInAutoPark(auto);
+        }catch (NullPointerException npe){
+            logger.warn(npe);
+        }
     }
 
     public List<Auto> getAutos(){

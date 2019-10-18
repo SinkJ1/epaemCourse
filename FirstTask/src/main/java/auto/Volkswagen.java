@@ -1,11 +1,8 @@
 package auto;
 
-import mainClass.Auto;
-import mainClass.BodyType;
-import mainClass.Type1;
-import mainClass.Type2;
+import mainClass.BodyType1;
 
-public class Volkswagen extends Type1 {
+public class Volkswagen extends BodyType1 {
 
 
     public Volkswagen(int id, String name, double fuelConsumption, int maxSpeed, double cost) {

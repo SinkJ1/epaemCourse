@@ -12,12 +12,15 @@ public class Auto {
 
     private double cost;
 
-    public Auto(int id, String name, double fuelConsumption, int maxSpeed, double cost) {
+    private BodyType bodyType;
+
+    public Auto(int id, String name, double fuelConsumption, int maxSpeed, double cost,BodyType bodyType) {
         this.id = id;
         this.name = name;
         this.fuelConsumption = fuelConsumption;
         this.maxSpeed = maxSpeed;
         this.cost = cost;
+        this.bodyType = bodyType;
     }
 
     public int getId() {
@@ -60,6 +63,14 @@ public class Auto {
         this.cost = cost;
     }
 
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
+    }
+
     @Override
     public String toString() {
         return "Auto{" +
@@ -68,6 +79,7 @@ public class Auto {
                 ", fuelConsumption=" + fuelConsumption +
                 ", maxSpeed=" + maxSpeed +
                 ", cost=" + cost +
+                ", bodyType=" + bodyType +
                 '}';
     }
 }
