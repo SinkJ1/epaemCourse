@@ -1,13 +1,10 @@
 package dao;
 
 import auto.Nissan;
-import auto.Volkswagen;
 import mainClass.Auto;
-import mainClass.BodyType1;
 import mainClass.BodyType2;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import taksi.AutoPark;
 
 import java.util.ArrayList;
 import java.util.List;

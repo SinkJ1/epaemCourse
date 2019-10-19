@@ -1,7 +1,7 @@
 package dao;
 
 import mainClass.Auto;
-import taksi.AutoPark;
+import taxi.AutoPark;
 
 import java.util.Comparator;
 import java.util.List;

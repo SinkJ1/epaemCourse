@@ -1,7 +1,5 @@
-package taksi;
+package taxi;
 
-import auto.Nissan;
-import auto.Volkswagen;
 import mainClass.Auto;
 
 import java.util.ArrayList;
