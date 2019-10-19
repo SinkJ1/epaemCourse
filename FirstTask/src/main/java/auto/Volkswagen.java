@@ -1,6 +1,6 @@
 package auto;
 
-import mainClass.BodyType1;
+import entity.BodyType1;
 
 public class Volkswagen extends BodyType1 {
 

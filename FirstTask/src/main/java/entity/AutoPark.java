@@ -1,6 +1,4 @@
-package taxi;
-
-import mainClass.Auto;
+package entity;
 
 import java.util.ArrayList;
 import java.util.List;

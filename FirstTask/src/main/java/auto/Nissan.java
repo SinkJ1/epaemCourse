@@ -1,6 +1,6 @@
 package auto;
 
-import mainClass.BodyType2;
+import entity.BodyType2;
 
 public class Nissan extends BodyType2 {
 

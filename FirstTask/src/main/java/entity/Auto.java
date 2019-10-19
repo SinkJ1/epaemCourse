@@ -1,4 +1,4 @@
-package mainClass;
+package entity;
 
 public class Auto {
 

@@ -1,7 +1,7 @@
 package dao;
 
-import mainClass.Auto;
-import taxi.AutoPark;
+import entity.Auto;
+import entity.AutoPark;
 
 import java.util.Comparator;
 import java.util.List;
@@ -49,7 +49,7 @@ public class AutoParkDao {
 
     public Double countSumCostAuto(List<Auto> autos){
         return  autos.stream()
-                .mapToDouble(i->i.getCost()).sum();
+                .mapToDouble(Auto::getCost).sum();
     }
 
     public List<Auto> findAutoBySpeedRange(List<Auto> autos,int max,int min){
