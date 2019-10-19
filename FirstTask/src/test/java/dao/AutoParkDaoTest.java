@@ -41,7 +41,7 @@ public class AutoParkDaoTest {
 
     @Test
     public void sortByFuelConsumptionTest(){
-        BodyType2 nissan = new Nissan(1,"nissan",123.2,1235,123);
+      
         BodyType2 nissan2 = new Nissan(1,"nissan1",126.2,1233,123);
         BodyType2 nissan3 = new Nissan(1,"nissan2",122.2,1235,123);
 
