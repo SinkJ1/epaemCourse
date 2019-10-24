@@ -1,0 +1,2 @@
+11:25:05.130 [main] WARN  dao.AutoParkDao - asdjava.lang.NullPointerException
+11:28:17.027 [main] WARN  dao.AutoParkDao - java.lang.NullPointerException

@@ -65,4 +65,13 @@ public class AutoParkDaoTest {
         AutoParkDao.getInstance().getAutos().clear();
     }
 
+    @Test
+    public void countSumAutoInAutoParkTestNullPointerEx(){
+        BodyType2 nissan3 = null;
+
+        AutoParkDao.getInstance().addInAutopark(nissan3);
+        Assert.assertNull(AutoParkDao.getInstance().countSumCostAuto(AutoParkDao.getInstance().getAutos()));
+        AutoParkDao.getInstance().getAutos().clear();
+    }
+
 }

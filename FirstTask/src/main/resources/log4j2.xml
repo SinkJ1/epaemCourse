@@ -9,7 +9,7 @@
     </Appenders>
 
     <Loggers>
-        <Root level="ERROR">
+        <Root level="WARN">
             <AppenderRef ref="log" />
         </Root>
     </Loggers>

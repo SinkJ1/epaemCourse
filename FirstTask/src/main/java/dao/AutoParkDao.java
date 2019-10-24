@@ -31,7 +31,7 @@ public class AutoParkDao {
 
     public void addInAutopark(Auto auto){
         try{
-        autoPark.addInAutoPark(auto);
+            autoPark.addInAutoPark(auto);
         }catch (NullPointerException npe){
             logger.warn(npe);
         }
@@ -42,19 +42,34 @@ public class AutoParkDao {
     }
 
     public List<Auto> sortByFuelConsumption(List<Auto> autos){
-        return autos.stream()
-                .sorted(Comparator.comparingDouble(Auto::getFuelConsumption))
-                .collect(Collectors.toList());
+        try {
+            return autos.stream()
+                    .sorted(Comparator.comparingDouble(Auto::getFuelConsumption))
+                    .collect(Collectors.toList());
+        }catch(NullPointerException ex){
+            logger.warn(ex);
+            return null;
+        }
     }
 
     public Double countSumCostAuto(List<Auto> autos){
-        return  autos.stream()
-                .mapToDouble(Auto::getCost).sum();
+        try{
+            return  autos.stream()
+                    .mapToDouble(Auto::getCost).sum();
+        }catch(NullPointerException ex){
+            logger.warn(ex);
+            return null;
+        }
     }
 
     public List<Auto> findAutoBySpeedRange(List<Auto> autos,int max,int min){
+        try{
         return  autos.stream()
                 .filter(s->s.getMaxSpeed() > min && s.getMaxSpeed() < max).collect(Collectors.toList());
+        }catch(NullPointerException ex){
+            logger.warn(ex);
+            return null;
+        }
     }
 
 }
