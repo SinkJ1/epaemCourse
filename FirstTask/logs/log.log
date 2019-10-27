@@ -1,2 +1,10 @@
 11:25:05.130 [main] WARN  dao.AutoParkDao - asdjava.lang.NullPointerException
 11:28:17.027 [main] WARN  dao.AutoParkDao - java.lang.NullPointerException
+11:29:55.411 [main] WARN  dao.AutoParkDao - java.lang.NullPointerException
+11:29:55.439 [main] WARN  dao.AutoParkDao - java.lang.NullPointerException
+11:29:55.514 [main] WARN  dao.AutoParkDao - java.lang.NullPointerException
+11:31:07.121 [main] WARN  dao.AutoParkDao - java.lang.NullPointerException
+11:31:07.139 [main] WARN  dao.AutoParkDao - java.lang.NullPointerException
+11:31:07.257 [main] WARN  dao.AutoParkDao - java.lang.NullPointerException
+23:20:20.758 [main] WARN  dao.AutoParkDao - java.lang.NullPointerException
+23:32:50.002 [main] WARN  dao.AutoParkDao - java.lang.NullPointerException

@@ -42,34 +42,37 @@ public class AutoParkDao {
     }
 
     public List<Auto> sortByFuelConsumption(List<Auto> autos){
+        List<Auto> autoList = null;
         try {
-            return autos.stream()
+            autoList =  autos.stream()
                     .sorted(Comparator.comparingDouble(Auto::getFuelConsumption))
                     .collect(Collectors.toList());
         }catch(NullPointerException ex){
             logger.warn(ex);
-            return null;
         }
+        return autoList;
     }
 
     public Double countSumCostAuto(List<Auto> autos){
+        double sum = 0;
         try{
-            return  autos.stream()
+            sum =  autos.stream()
                     .mapToDouble(Auto::getCost).sum();
         }catch(NullPointerException ex){
             logger.warn(ex);
-            return null;
         }
+        return sum;
     }
 
     public List<Auto> findAutoBySpeedRange(List<Auto> autos,int max,int min){
+        List<Auto> autoList = null;
         try{
-        return  autos.stream()
+            autoList =  autos.stream()
                 .filter(s->s.getMaxSpeed() > min && s.getMaxSpeed() < max).collect(Collectors.toList());
         }catch(NullPointerException ex){
             logger.warn(ex);
-            return null;
         }
+        return autoList;
     }
 
 }

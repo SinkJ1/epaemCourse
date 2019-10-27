@@ -39,21 +39,28 @@ public class AutoParkDaoTest {
         AutoParkDao.getInstance().getAutos().clear();
     }
 
-    @Test
+    @Test(expectedExceptions = AutoParkDao.class)
     public void sortByFuelConsumptionTest(){
         BodyType2 nissan = new Nissan(1,"nissan",123.2,1235,123);
         BodyType2 nissan2 = new Nissan(1,"nissan1",126.2,1233,123);
         BodyType2 nissan3 = new Nissan(1,"nissan2",122.2,1235,123);
 
-        AutoParkDao.getInstance().addInAutopark(nissan);
-        AutoParkDao.getInstance().addInAutopark(nissan2);
-        AutoParkDao.getInstance().addInAutopark(nissan3);
-        List<Auto> checkTestListAuto = new ArrayList();
-        checkTestListAuto.add(nissan3);
-        checkTestListAuto.add(nissan);
-        checkTestListAuto.add(nissan2);
-        Assert.assertEquals(AutoParkDao.getInstance().sortByFuelConsumption(AutoParkDao.getInstance().getAutos()),checkTestListAuto);
-        AutoParkDao.getInstance().getAutos().clear();
+            AutoParkDao.getInstance().addInAutopark(nissan);
+            AutoParkDao.getInstance().addInAutopark(nissan2);
+            AutoParkDao.getInstance().addInAutopark(nissan3);
+
+            List<Auto> checkTestListAuto = new ArrayList();
+
+            checkTestListAuto.add(nissan3);
+            checkTestListAuto.add(nissan);
+            checkTestListAuto.add(nissan2);
+
+            Assert.assertEquals(AutoParkDao.getInstance().sortByFuelConsumption(AutoParkDao.getInstance().getAutos()), checkTestListAuto);
+        Exception e = caughtException();
+        // Use JUnit, TestNG, AssertJ etc. assertions on the "e" exception
+        assert e instanceof IndexOutOfBoundsException;
+            AutoParkDao.getInstance().getAutos().clear();
+
     }
 
     @Test
@@ -66,12 +73,8 @@ public class AutoParkDaoTest {
     }
 
     @Test
-    public void countSumAutoInAutoParkTestNullPointerEx(){
-        BodyType2 nissan3 = null;
-
-        AutoParkDao.getInstance().addInAutopark(nissan3);
-        Assert.assertNull(AutoParkDao.getInstance().countSumCostAuto(AutoParkDao.getInstance().getAutos()));
-        AutoParkDao.getInstance().getAutos().clear();
+    public void throwIfOrderIsNull()  {
+        AutoParkDao.getInstance().sortByFuelConsumption(null);
     }
 
 }
