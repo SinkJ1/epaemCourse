@@ -30,10 +30,8 @@ public class AutoParkDao {
     }
 
     public void addInAutopark(Auto auto){
-        try{
+        if(auto != null) {
             autoPark.addInAutoPark(auto);
-        }catch (NullPointerException npe){
-            logger.warn(npe);
         }
     }
 
@@ -43,7 +41,7 @@ public class AutoParkDao {
 
     public List<Auto> sortByFuelConsumption(List<Auto> autos){
         List<Auto> autoList = null;
-        try {
+        try{
             autoList =  autos.stream()
                     .sorted(Comparator.comparingDouble(Auto::getFuelConsumption))
                     .collect(Collectors.toList());
