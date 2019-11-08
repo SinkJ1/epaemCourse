@@ -1,8 +1,8 @@
 package auto;
 
-import entity.BodyType1;
+import entity.CoupeType;
 
-public class Volkswagen extends BodyType1 {
+public class Volkswagen extends CoupeType {
 
 
     public Volkswagen(int id, String name, double fuelConsumption, int maxSpeed, double cost) {
