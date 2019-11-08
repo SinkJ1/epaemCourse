@@ -14,42 +14,38 @@ public class TextBuild {
 
     private static final Logger logger = LogManager.getLogger(TextBuild.class);
     private List<String> sentenceList = new ArrayList<>();
+    private List<String> lineList = new ArrayList<>();
     private char charArray[];
 
-    public List<String> getText(String path){
-
-        List<String> sentenceList = new ArrayList<>();
+    public void getText(String path){
 
         try{
-            Files.lines(Paths.get(path), StandardCharsets.UTF_8).forEach(line -> lineParser(line));
+            Files.lines(Paths.get(path), StandardCharsets.UTF_8).forEach(lineList::add);
         }catch (IOException ex){
             logger.warn(ex);
         }
-        return sentenceList;
+
+        System.out.println(lineList.toString());
+        charArray = lineList.toString().toCharArray();
     }
 
-    private void addInArray(){
-        
-    }
 
 
-    private void lineParser(String line){
+    public List<String> lineParser(){
 
         StringBuilder stringBuilder = new StringBuilder();
-        charArray = line.toCharArray();
 
         for(int i = 0; i < charArray.length - 1;i++){
             stringBuilder.append(charArray[i]);
-            if(((charArray[i] == '.' || charArray[i] == '!' || charArray[i] == '?') && charArray[i+1] == ' ') || i+2 == charArray.length){
+            if((charArray[i] == '.' || charArray[i] == '!' || charArray[i] == '?') && ((charArray[i+1] == ' ') || (String.valueOf(charArray[i+1]).matches("A-Z")))){
+                stringBuilder.append(charArray[i]);
                 sentenceList.add(stringBuilder.toString());
                 i++;
                stringBuilder.setLength(0);
             }
         }
-    }
-
-    public List<String> getSentenceList(){
         return sentenceList;
     }
+
 
 }

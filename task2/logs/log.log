@@ -33,3 +33,4 @@
 14:03:56.194 [main] WARN  text.TextBuild - java.io.FileNotFoundException: textFiles\TextFlle.txt (Не удается найти указанный файл)
 14:04:53.903 [main] WARN  text.TextBuild - java.io.FileNotFoundException: textFiles\TextFlle.txt (Не удается найти указанный файл)
 14:07:10.245 [main] WARN  text.TextBuild - java.io.FileNotFoundException: textFiles\TextFlle.txt (Не удается найти указанный файл)
+20:32:19.592 [main] WARN  text.TextBuild - java.nio.file.NotDirectoryException: textFiles\text.txt

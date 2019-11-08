@@ -22,6 +22,9 @@ public class App
     public static void main( String[] args ) throws IOException {
         TextBuild te = new TextBuild();
         te.getText(path);
-        te.getSentenceList().stream().forEach(System.out::println);
+       // te.lineParser().stream().forEach(System.out::println);
+        //System.out.println(te.lineParser().get(2));
+
+        //te.getSentenceList().stream().forEach(System.out::println);
     }
 }
