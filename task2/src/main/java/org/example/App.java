@@ -1,15 +1,11 @@
 package org.example;
 
-import text.TextBuild;
+import text.Parser;
+import text.TextBuilder;
+import text.TextFileWorker;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Hello world!
@@ -18,13 +14,23 @@ import java.util.regex.Pattern;
 public class App 
 {
     private static final String path = "textFiles/text.txt";
+    private static final String path2 = "textFiles/text2.txt";
 
-    public static void main( String[] args ) throws IOException {
-        TextBuild te = new TextBuild();
-        te.getText(path);
-       // te.lineParser().stream().forEach(System.out::println);
-        //System.out.println(te.lineParser().get(2));
-
-        //te.getSentenceList().stream().forEach(System.out::println);
+    public static void main( String[] args ){
+        TextFileWorker tfw = new TextFileWorker();
+        tfw.readText(path);
+        TextBuilder tb = new TextBuilder();
+       // tb.replaceWords(4,3,Parser.getInstance().getSentenceList(),"new Words");
+        List<String> abc = new ArrayList<>();
+        abc.add("qwert!");
+        abc.add("qwert!");
+        abc.add("qwert!");
+        abc.add("qwert!");
+        abc.add("qwert!");
+        abc.add("qwert!");
+        abc.add("qwert!");
+        abc.add("qwert!");
+        abc.add("qwert!");
+        tfw.writeText(abc,path2);
     }
 }
