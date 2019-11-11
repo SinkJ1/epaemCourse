@@ -54,14 +54,21 @@ public class Parser {
             for(int i = 0 ; i < charArray.length; i++){
                 if(String.valueOf(charArray[i]).matches("[А-яA-z]")){
                     stringBuilder.append(charArray[i]);
+                }else if(String.valueOf(charArray[i]).matches("[0-9]") && charArray[i+1] == '.' && i + 2 !=charArray.length && String.valueOf(charArray[i+2]).matches("[0-9]")){
+                    stringBuilder.append(charArray[i]);
+                    stringBuilder.append(charArray[i+1]);
+                    stringBuilder.append(charArray[i+2]);
+                    i += 3;
+                    objectList.add(new Element(elementType.number,new Object[]{new StringBuilder(stringBuilder)}));
+                    stringBuilder.setLength(0);
                 }else{
                     if(stringBuilder.length() > 0){
-                        objectList.add(new Element(elementType.word,stringBuilder.toString()));
+                        objectList.add(new Element(elementType.word,new Object[]{new StringBuilder(stringBuilder)}));
                         stringBuilder.setLength(0);
                     }
-                        stringBuilder.append(charArray[i]);
-                        objectList.add(new Element(elementType.punctuationMark,stringBuilder.toString()));
-                        stringBuilder.setLength(0);
+                    stringBuilder.append(charArray[i]);
+                    objectList.add(new Element(elementType.punctuationMark,new Object[]{new StringBuilder(stringBuilder)}));
+                    stringBuilder.setLength(0);
                 }
             }
 
@@ -69,19 +76,21 @@ public class Parser {
         return objectList;
     }
 
-        List<List<Object>> sentenceList1 = new ArrayList<>();
-    public List<List<Object>> createSentence(List<Object> elementsList){
+
+    public List<Object> createSentence(List<Object> elementsList){
+        List<Object> sentenceList = new ArrayList<>();
         List<Object> booferList = new ArrayList<>();
 
         for(Object object : elementsList){
             Element element = (Element) object;
-            booferList.add(object);
-            if(element.getType() == elementType.punctuationMark && (element.getValue() == "." || element.getValue() == "?" || element.getValue().equals("!"))){
-                sentenceList1.add(booferList);
-                booferList.clear();// error
+
+            booferList.add(element);
+            if(element.getType() == elementType.punctuationMark && (element.getValue()[0].toString().equals(".") || element.getValue()[0].toString().equals("?") || element.getValue()[0].toString().equals("!"))){
+                sentenceList.add(new Element(elementType.sentence,booferList.toArray()));
+                booferList.clear();
             }
         }
-        return sentenceList1;
+        return sentenceList;
     }
 
 }

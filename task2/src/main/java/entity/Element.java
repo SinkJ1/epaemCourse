@@ -1,15 +1,17 @@
 package entity;
 
+import java.util.Arrays;
+
 public class Element {
 
     private elementType type;
 
-    private String value;
+    private Object[] value;
 
     public Element() {
     }
 
-    public Element(elementType type, String value) {
+    public Element(elementType type, Object[] value) {
         this.type = type;
         this.value = value;
     }
@@ -22,16 +24,16 @@ public class Element {
         this.type = type;
     }
 
-    public String getValue() {
+    public Object[] getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(Object[] value) {
         this.value = value;
     }
 
     @Override
     public String toString() {
-        return value;
+        return Arrays.toString(value);
     }
 }
