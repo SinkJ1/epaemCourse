@@ -1,10 +1,11 @@
-package entity;
+package part3.entity;
 
 public enum elementType {
 
+    blank,
     punctuationMark,
-    sentence,
     other,
+    sentence,
     word,
     number
 }

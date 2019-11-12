@@ -12,7 +12,7 @@ public class Parser {
     private StringBuilder stringBuilder = new StringBuilder();
     private char charArray[];
 
-    public List<Object> lineParser(List<String> lineList){
+    public List<Object> lineParser(List<String> lineList){//Исправить!
 
         for(String line : lineList) {
             sentenceList.add(deleteBlanks(line.toCharArray()));
@@ -55,12 +55,12 @@ public class Parser {
                 if(String.valueOf(charArray[i]).matches("[А-яA-z]")){
                     stringBuilder.append(charArray[i]);
                 }else if(String.valueOf(charArray[i]).matches("[0-9]") && charArray[i+1] == '.' && i + 2 !=charArray.length && String.valueOf(charArray[i+2]).matches("[0-9]")){
-                    stringBuilder.append(charArray[i]);
-                    stringBuilder.append(charArray[i+1]);
-                    stringBuilder.append(charArray[i+2]);
-                    i += 3;
-                    objectList.add(new Element(elementType.number,new Object[]{new StringBuilder(stringBuilder)}));
-                    stringBuilder.setLength(0);
+                    stringBuilder.append(charArray[i]);/* Исправить!  */
+                    stringBuilder.append(charArray[i+1]);/* Исправить!  */
+                    stringBuilder.append(charArray[i+2]);/* Исправить!  */
+                    i += 3;/* Исправить!  */
+                    objectList.add(new Element(elementType.number,new Object[]{new StringBuilder(stringBuilder)}));/* Исправить!  */
+                    stringBuilder.setLength(0);/* Исправить!  */
                 }else{
                     if(stringBuilder.length() > 0){
                         objectList.add(new Element(elementType.word,new Object[]{new StringBuilder(stringBuilder)}));
