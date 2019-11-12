@@ -13,7 +13,7 @@ public class Element {
     public Element() {
     }
 
-    public Element(elementType type, Object value, int length) {
+    public Element(elementType type, Object value,int length) {
         this.type = type;
         this.value = value;
         this.length = length;
@@ -48,3 +48,4 @@ public class Element {
         return value.toString();
     }
 }
+

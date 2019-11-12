@@ -1,10 +1,13 @@
 package org.example;
 
 import part3.entity.Element;
+import part3.entity.Sentence;
 import part3.entity.elementType;
 import part3.fileWork.Parser;
+import part3.fileWork.TextBuilder;
 import part3.fileWork.TextFileWorker;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,15 +25,10 @@ public class App
 
 
         TextFileWorker thw = new TextFileWorker();
+        TextBuilder tb = new TextBuilder();
         Parser parser = new Parser();
-
-        String line = "Seeeee 8.822222 .JJJJJ! jjjjw?";
-
-        Pattern pattern = Pattern.compile("[+-]?([0-9]*[.])?[0-9]+");
-        Matcher matcher = pattern.matcher(line);
-        Element element = new Element();
-        element.setType(elementType.number);
-
-        parser.elementsSplit(thw.readText(path)).stream().forEach(System.out::println);
+        List<Sentence> abc = tb.buildSentence(parser.elementsSplit(thw.readText(path)));
+        List<Sentence> abc1 = tb.replaceWord(1,3,"sssss",abc);
+        thw.writeText(tb.textBuild(abc1),path2);
     }
 }
