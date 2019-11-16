@@ -14,25 +14,45 @@ public class Parser {
 
         for(String line : lineList){
             char [] charArray = line.toCharArray();
+            boolean isLast = false;
             for(int i = 0; i < charArray.length;i++){
                 if(String.valueOf(charArray[i]).matches("[A-zА-я]")) {
                    Element element = splitWord(i,charArray);
+                   if(i + 1 == charArray.length){
+                       isLast = true;
+                   }
+                   element.setLast(isLast);
                    i +=element.getLength() - 1;
                    elementList.add(element);
                 }else if(String.valueOf(charArray[i]).matches("[.!?]")){
                     Element element = splitPunctuation(i,charArray);
+                    if(i + 1 == charArray.length){
+                        isLast = true;
+                    }
+                    element.setLast(isLast);
                     i += element.getLength() - 1;
                     elementList.add(element);
                 }else if(String.valueOf(charArray[i]).matches("[ ]")){
                     Element element = splitBlank(i,charArray);
+                    if(i + 1 == charArray.length){
+                        isLast = true;
+                    }
+                    element.setLast(isLast);
                     i += element.getLength() - 1;
                     elementList.add(element);
                 }else if(String.valueOf(charArray[i]).matches("[0-9]")){
                     Element element = splitNumber(i,charArray);
+                    if(i + 1 == charArray.length){
+                        isLast = true;
+                    }
+                    element.setLast(isLast);
                     i += element.getLength() - 1;
                     elementList.add(element);
                 }else{
-                    elementList.add(new Element(elementType.other,charArray[i],1));
+                    if(i + 1 == charArray.length){
+                        isLast = true;
+                    }
+                    elementList.add(new Element(elementType.other,charArray[i],1,isLast));
                 }
             }
         }
@@ -79,6 +99,7 @@ public class Parser {
             stringBuilder.append(array[id]);
             id++;
             length++;
+
         }
         return new Element(elementType.punctuationMark,stringBuilder,length);
     }

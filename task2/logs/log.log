@@ -34,3 +34,6 @@
 14:04:53.903 [main] WARN  text.TextFileWorker - java.io.FileNotFoundException: textFiles\TextFlle.txt (Не удается найти указанный файл)
 14:07:10.245 [main] WARN  text.TextFileWorker - java.io.FileNotFoundException: textFiles\TextFlle.txt (Не удается найти указанный файл)
 20:32:19.592 [main] WARN  text.TextFileWorker - java.nio.file.NotDirectoryException: textFiles\text.txt
+16:00:56.599 [main] WARN  part3.fileWork.TextFileWorker - java.nio.file.NoSuchFileException: \textFiles\TestTextFile.txt
+16:01:11.134 [main] WARN  part3.fileWork.TextFileWorker - java.nio.file.NoSuchFileException: \textFiles\TestTextFile
+16:02:15.733 [main] WARN  part3.fileWork.TextFileWorker - java.nio.file.NoSuchFileException: textFiles\TestTextFile.txt

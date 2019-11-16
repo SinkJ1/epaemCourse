@@ -28,7 +28,8 @@ public class App
         TextBuilder tb = new TextBuilder();
         Parser parser = new Parser();
         List<Sentence> abc = tb.buildSentence(parser.elementsSplit(thw.readText(path)));
-        List<Sentence> abc1 = tb.replaceWord(1,3,"sssss",abc);
+        List<Sentence> abc1 = tb.replaceWord(2,3,"sssss",abc);
         thw.writeText(tb.textBuild(abc1),path2);
+        System.out.println("sssss");
     }
 }

@@ -9,6 +9,8 @@ import java.util.List;
 
 public class TextBuilder {
 
+    private List<String> newLineList = new ArrayList<>();
+
     public List<Sentence> buildSentence(List<Element> elementList){
 
         List<Sentence> sentenceList = new ArrayList<>();
@@ -20,11 +22,11 @@ public class TextBuilder {
             if(element.getType() != elementType.punctuationMark){
                 newElementList.add(element);
             }else{
-            newElementList.add(element);
-            Sentence sentence = new Sentence();
-            sentence.setElementList(new ArrayList<>(newElementList));
-            sentenceList.add(sentence);
-            newElementList.clear();
+                newElementList.add(element);
+                Sentence sentence = new Sentence();
+                sentence.setElementList(new ArrayList<>(newElementList));
+                sentenceList.add(sentence);
+                newElementList.clear();
             }
         }
 
@@ -33,15 +35,16 @@ public class TextBuilder {
 
     public List<Sentence> replaceWord(int id, int length, String newWord, List<Sentence> sentenceList){
 
-            for(Element element: sentenceList.get(id).getElementList()){
+        for(Element element: sentenceList.get(id).getElementList()){
 
-                if(element.getLength() == length && element.getType() == elementType.word){
-                    element.setValue(newWord);
-                }
+            if(element.getLength() == length && element.getType() == elementType.word){
+                element.setValue(newWord);
             }
+        }
 
         return sentenceList;
     }
+
 
     public List<String> textBuild(List<Sentence> sentenceList){
 
@@ -56,11 +59,21 @@ public class TextBuilder {
                 }else{
                     stringBuilder.append(element.getValue());
                 }
+                if(element.isLast()){
+                    line.add(stringBuilder.toString());
+                    stringBuilder.setLength(0);
+
+                }
             }
-            line.add(stringBuilder.toString());
-            stringBuilder.setLength(0);
         }
         return line;
     }
+
+
+    private int getWordCount(String text){
+        String[] word=text.split("\\s+");
+        return  word.length;
+    }
+
 
 }
