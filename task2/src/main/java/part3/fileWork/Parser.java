@@ -52,7 +52,7 @@ public class Parser {
                     if(i + 1 == charArray.length){
                         isLast = true;
                     }
-                    elementList.add(new Element(elementType.other,charArray[i],1,isLast));
+                    elementList.add(new Element(elementType.other,String.valueOf(charArray[i]),1,isLast));
                 }
             }
         }
@@ -71,7 +71,7 @@ public class Parser {
             id++;
         }
 
-        return new Element(elementType.word,stringBuilder,length);
+        return new Element(elementType.word,stringBuilder.toString(),length);
     }
 
     private Element splitBlank(int id, char[] array){
@@ -86,7 +86,7 @@ public class Parser {
             length++;
         }
 
-        return new Element(elementType.blank,stringBuilder,length);
+        return new Element(elementType.blank,stringBuilder.toString(),length);
     }
 
     private Element splitPunctuation(int id, char[] array){
@@ -101,7 +101,7 @@ public class Parser {
             length++;
 
         }
-        return new Element(elementType.punctuationMark,stringBuilder,length);
+        return new Element(elementType.punctuationMark,stringBuilder.toString(),length);
     }
 
     private Element splitNumber(int id, char[] array){
@@ -113,7 +113,7 @@ public class Parser {
             id++;
             length++;
         }
-        return new Element(elementType.number,stringBuilder,length);
+        return new Element(elementType.number,stringBuilder.toString(),length);
     }
 
 }

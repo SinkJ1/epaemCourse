@@ -2,6 +2,7 @@ package part3.entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Sentence {
 
@@ -31,6 +32,15 @@ public class Sentence {
 
     public void addInElementList(Element element){
         elementList.add(element);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Sentence sentence = (Sentence) o;
+        return type == sentence.type &&
+                Objects.equals(elementList, sentence.elementList);
     }
 
     @Override

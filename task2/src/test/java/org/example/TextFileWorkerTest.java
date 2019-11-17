@@ -1,7 +1,7 @@
 package org.example;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import part3.fileWork.TextFileWorker;
 
 import java.util.ArrayList;
@@ -24,15 +24,6 @@ public class TextFileWorkerTest {
         list.add("Hello World!");
         tfw.writeText(list,path);
         Assert.assertEquals(tfw.readText(path).get(0),"Hello World!");
-    }
-
-    @Test
-    public void wordCount(){
-
-        String text = "Ого! Прошло 1.0!";
-        String[] word=text.split("\\s+");
-        System.out.println(word.length);
-        Assert.assertEquals(word.length,3);
     }
 
 }
