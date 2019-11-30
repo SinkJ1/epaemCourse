@@ -31,16 +31,17 @@ public class TextBuilderTest {
         List<Sentence> sentenceList = new ArrayList<>();
         sentenceList.add(sentence);
 
+        List<Element> newElementList = new ArrayList<>();
 
-        elementList.add(new Element(elementType.word,"new Word",5,false));
-        elementList.add(new Element(elementType.other,",",1,false));
-        elementList.add(new Element(elementType.blank," ",1,false));
-        elementList.add(new Element(elementType.word,"new Word",5,false));
-        elementList.add(new Element(elementType.punctuationMark,"!",1,true));
+        newElementList.add(new Element(elementType.word,"new Word",5,false));
+        newElementList.add(new Element(elementType.other,",",1,false));
+        newElementList.add(new Element(elementType.blank," ",1,false));
+        newElementList.add(new Element(elementType.word,"new Word",5,false));
+        newElementList.add(new Element(elementType.punctuationMark,"!",1,true));
 
         Sentence newSentence = new Sentence();
 
-        newSentence.setElementList(elementList);
+        newSentence.setElementList(newElementList);
         List<Sentence> newSentenceList = new ArrayList<>();
         newSentenceList.add(sentence);
 

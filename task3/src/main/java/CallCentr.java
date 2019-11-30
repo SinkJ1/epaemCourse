@@ -22,11 +22,10 @@ public class CallCentr extends  Thread{
         try {
             while (counter < 4){
                 while (counter < 4){
-                    if(!app.getUserqueue().isEmpty()){
-                        User user = app.getUserqueue().poll();
-
+                    if(!app.getUserQueue().isEmpty()){
+                        User user = app.getUserQueue().poll();
                         if(user != null){
-                            tryHeal(user);
+                            tryHelp(user);
                         }
                     }
                 }
@@ -36,15 +35,16 @@ public class CallCentr extends  Thread{
         }
     }
 
-    public void tryHeal(User user) throws InterruptedException {
+    public void tryHelp(User user) throws InterruptedException {
         sleep(100);
         user.calling = true;
         System.out.println(id + " - " + user.name);
-        app.getCallCentrqueue().remove(user);
+        notify();
+        app.getCallCentrQueue().remove(user);
     }
 
 
-    public boolean tryHeal(String newId) throws InterruptedException {
+    public boolean tryHelp(String newId) throws InterruptedException {
 
         if(locker.tryLock()){
             sleep(100);

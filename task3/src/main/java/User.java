@@ -20,20 +20,27 @@ public class User extends Thread{
 
             try {
                 callToCentr();
+                    if(calling == false){
+                        sleep(100);
+                        if(calling == false){
+                            System.out.println(this.name + "get out");
+                            app.getUserQueue().remove(this);
+                        }
+                    }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
     }
 
     private void callToCentr() throws InterruptedException {
-        for(CallCentr callCentr : app.getCallCentrqueue()){
-            if(callCentr.tryHeal(name)){
+        for(CallCentr callCentr : app.getCallCentrQueue()){
+            if(callCentr.tryHelp(name)){
                 calling = true;
                 break;
             }
         }
         if(!calling){
-            app.getUserqueue().add(this);
+            app.getUserQueue().add(this);
             System.out.println(name + "is wait");
         }
 
