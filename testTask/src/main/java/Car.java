@@ -23,12 +23,12 @@ public class Car extends Thread {
             if (onParking) {
                 sleep(100);
                 goAway();
-                place.setCanParking();
+                place.setCanParking(true);
             } else {
                 waitPlace();
                 if (!onParking) {
-                    goAway();
-                    prog.getCarQueue().remove(this);
+                   // goAway();
+                  //  prog.getCarQueue().remove(this);
                 }
             }
         }catch (InterruptedException e){

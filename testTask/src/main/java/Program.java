@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
@@ -12,7 +13,7 @@ public class Program {
 
     public static void main(String[] args) {
 
-        Program prog = new Program();
+      /*  Program prog = new Program();
 
         new Car("name",prog).start();
         new Car("name1",prog).start();
@@ -29,7 +30,7 @@ public class Program {
         placeList.add(new Parking(prog,1));
         placeList.add(new Parking(prog,2));
 
-        placeList.forEach(Thread::start);
+        placeList.forEach(Thread::start);*/
 
     }
 
