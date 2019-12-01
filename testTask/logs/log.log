@@ -48,3 +48,18 @@
 00:07:32.677 [Thread-6] INFO  newVersion.Car - car name7 is way out from queue
 00:07:32.739 [Thread-1] WARN  newVersion.Car - car name2 is way outfrom 0
 00:07:32.913 [Thread-0] WARN  newVersion.Car - car name is way outfrom 1
+20:53:54.472 [Thread-2] INFO  newVersion.Car - carname3 in queue
+20:53:54.472 [Thread-0] INFO  newVersion.Place - name in place 0
+20:53:54.472 [Thread-5] INFO  newVersion.Car - carname6 in queue
+20:53:54.472 [Thread-6] INFO  newVersion.Car - carname7 in queue
+20:53:54.472 [Thread-3] INFO  newVersion.Car - carname4 in queue
+20:53:54.472 [Thread-4] INFO  newVersion.Place - name5 in place 1
+20:53:54.472 [Thread-1] INFO  newVersion.Car - carname2 in queue
+20:53:54.722 [Thread-4] WARN  newVersion.Car - car name5 is way outfrom 1
+20:53:54.726 [Thread-5] INFO  newVersion.Place - name6 in place 1
+20:53:54.733 [Thread-1] INFO  newVersion.Car - car name2 is way out from queue
+20:53:54.782 [Thread-0] INFO  newVersion.Car - name swapped place from name6
+20:53:54.817 [Thread-3] INFO  newVersion.Car - car name4 is way out from queue
+20:53:54.831 [Thread-6] INFO  newVersion.Car - car name7 is way out from queue
+20:53:54.891 [Thread-2] INFO  newVersion.Car - car name3 is way out from queue
+20:53:55.017 [Thread-0] WARN  newVersion.Car - car name is way outfrom 1
