@@ -7,7 +7,7 @@ public class Program {
 
     private static List<Place> placeList = new ArrayList<>();
 
-    static List<Car> car = new ArrayList<>();
+    static List<Car2> car = new ArrayList<>();
 
     public static void main(String[] args) {
         placeList.add(new Place(1));
@@ -16,9 +16,9 @@ public class Program {
         Program program = new Program();
 
         for(int i = 0; i < 5; i++){
-            car.add(new Car(program,true,500));
+            car.add(new Car2(program,true,500));
         }for(int i = 0; i < 1; i++){
-            car.add(new Car(program,false,0));
+            car.add(new Car2(program,false,0));
         }
     }
 

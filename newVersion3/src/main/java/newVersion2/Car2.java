@@ -3,8 +3,9 @@ package newVersion2;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Car {
+import java.util.concurrent.Semaphore;
 
+public class Car2 {
     private Thread thread;
 
     private Program program;
@@ -17,17 +18,23 @@ public class Car {
 
     private static final Logger log = LogManager.getLogger(Car.class);
 
-    public Car(Program program, boolean wait,int time){
+    Semaphore semaphore;
+
+    public Car2(Program program, boolean wait,int time){
         this.program = program;
         this.wait = wait;
         this.time = time;
         thread = new Thread(this::run);
+        semaphore = new Semaphore(program.getPlaceList().size());
         thread.start();
     }
 
     private void run(){
-        parking();
+        if(semaphore.tryAcquire()){
+            parking();
+        }
     }
+
 
     private boolean parking(){
         for(Place place : program.getPlaceList()){
@@ -45,20 +52,15 @@ public class Car {
     }
 
     private void tryParking(){
-        System.out.println("car "+ thread.getName() + "on place" + place.id);
         try{
-            thread.sleep(100);
-            swap(this);
-            System.out.println("Car " + thread.getName() + " away" + place.id);
-            clear();
+            System.out.println(thread.getName() + " in place " + place.id);
+            thread.sleep(500);
+            place.empty = true;
+            semaphore.release();
+            System.out.println(thread.getName() + " away " + place.id);
         }catch (InterruptedException e){
             log.warn(e);
         }
-    }
-
-    private void clear(){
-        place.empty = true;
-        place = null;
     }
 
     private void falseParking(){
@@ -68,13 +70,10 @@ public class Car {
             if(!parking()){
                 System.out.println("Car " + thread.getName() + " away");
             }
+            semaphore.release();
         }catch (InterruptedException e){
             log.warn(e);
         }
-    }
-
-    private void swap(Car car){
-        //develop
     }
 
 
