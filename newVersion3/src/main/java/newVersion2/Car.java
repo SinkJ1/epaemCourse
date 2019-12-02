@@ -31,8 +31,8 @@ public class Car {
 
     private boolean parking(){
         for(Place place : program.getPlaceList()){
-            if(place.empty){
-                place.empty = false;
+            if(place.empty.get()){
+           //     place.empty = false;
                 this.place = place;
                 tryParking();
                 return true;
@@ -57,7 +57,7 @@ public class Car {
     }
 
     private void clear(){
-        place.empty = true;
+        //place.empty = true;
         place = null;
     }
 

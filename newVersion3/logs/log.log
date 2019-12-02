@@ -1,0 +1,3 @@
+16:38:44.514 [Thread-5] WARN  newVersion2.Car - java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 1
+16:38:45.014 [Thread-0] WARN  newVersion2.Car - java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 1
+16:38:45.514 [Thread-4] WARN  newVersion2.Car - java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 1
