@@ -22,18 +22,19 @@ public class Car2 {
 
     ReentrantLock locker;
 
-    private static final Logger log = LogManager.getLogger(Car.class);
+    private static final Logger log = LogManager.getLogger(Car2.class);
 
-    private List<Car2> cars = new ArrayList<>();
+    private boolean canSwap;
 
     Semaphore semaphore;
 
-    public Car2(Program program, boolean wait,int time,Semaphore semaphore,ReentrantLock locker){
+    public Car2(Program program, boolean wait,int time,Semaphore semaphore,ReentrantLock locker,boolean canSwap){
         this.program = program;
         this.wait = wait;
         this.time = time;
         this.semaphore = semaphore;
         this.locker = locker;
+        this.canSwap = canSwap;
         thread = new Thread(this::run);
         thread.start();
     }
@@ -50,12 +51,12 @@ public class Car2 {
 
     private boolean parking(){
         for(Place place : program.getPlaceList()){
-            if(place.empty.get()){
+            if(place.getEmpty().get()){
                 if(locker.tryLock()){
                     place.setEmpty(new AtomicBoolean(false));
-                this.place = place;
-                locker.unlock();
-                tryParking();
+                    this.place = place;
+                    locker.unlock();
+                    tryParking();
                 }
                 return true;
             }
@@ -65,14 +66,17 @@ public class Car2 {
 
     private void tryParking(){
         try{
-            cars.add(this);
-            System.out.println(thread.getName() + " in place " + place.id);
+            program.getCars().add(this);
+            System.out.println(thread.getName() + " in place " + place.getId());
             thread.sleep(time);
-            swap(this);
+            if(canSwap && locker.tryLock()){
+                swap(this);
+                locker.unlock();
+            }
             place.setEmpty(new AtomicBoolean(true));
-            cars.remove(this);
+            program.getCars().remove(this);
             semaphore.release();
-            System.out.println(thread.getName() + " away " + place.id);
+            System.out.println(thread.getName() + " away " + place.getId());
         }catch (InterruptedException e){
             log.warn(e);
         }
@@ -94,25 +98,22 @@ public class Car2 {
 
     private void swap(Car2 car){
         try {
-            int i = cars.indexOf(this);
+            int i = program.getCars().indexOf(this);
             if(i >= 0){
-                swapEl(cars.get(i+1),this);
-            }else if(i <= cars.size()){
-                swapEl(cars.get(i-1),this);
+                swapEl(program.getCars().get(i+1));
+            }else if(i <= program.getCars().size()){
+                swapEl(program.getCars().get(i-1));
             }
         }catch (IndexOutOfBoundsException e){
             log.warn(e);
         }
     }
 
-    private void swapEl(Car2 nextCar , Car2 oldCar){
-
-        Car2 car2 = nextCar;
-        car2.place = nextCar.place;
-
-        nextCar.place = oldCar.place;
-        oldCar.place = car2.place;
-
+    private void swapEl(Car2 nextCar){
+        System.out.println(thread.getName() + " and " + nextCar.thread.getName() + " swap place");
+        Place place = this.place;
+        this.place = nextCar.place;
+        nextCar.place = place;
     }
 
 }

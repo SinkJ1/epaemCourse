@@ -4,9 +4,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Place {
 
-    int id;
+    private int id;
 
-    public volatile AtomicBoolean empty;
+    private volatile AtomicBoolean empty;
 
     public void setEmpty(AtomicBoolean empty) {
         this.empty = empty;
@@ -16,4 +16,11 @@ public class Place {
         this.id = id;
     }
 
+    public AtomicBoolean getEmpty(){
+        return  empty;
+    }
+
+    public int getId() {
+        return id;
+    }
 }
