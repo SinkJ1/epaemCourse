@@ -1,4 +1,4 @@
-package by.senla.practics.config;
+package by.task4.practics.config;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

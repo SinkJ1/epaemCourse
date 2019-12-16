@@ -1,4 +1,4 @@
-package by.senla.practics.controller;
+package by.task4.practics.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import by.senla.practics.interfaces.GenericService;
-import by.senla.practics.model.User;
+import by.task4.practics.entity.User;
+import by.task4.practics.interfaces.GenericService;
 import javassist.expr.NewArray;
 
 public abstract class AbstractController<T> {
@@ -22,7 +22,7 @@ public abstract class AbstractController<T> {
 
 	@PostMapping(produces = "application/json;charset=UTF-8")
 	public ResponseEntity<T> add(@RequestBody T entity) {
-		genericService.persist(entity);
+		genericService.add(entity);
 		return ResponseEntity.ok().build();
 	}
 

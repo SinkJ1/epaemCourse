@@ -1,28 +1,23 @@
-package by.senla.practics.DAO;
+package by.task4.practics.DAO;
+
+import java.util.List;
+import java.util.Map;
+
+import javax.persistence.EntityManager;
 
 import org.springframework.stereotype.Repository;
-import by.senla.practics.interfaces.UserDAO;
-import by.senla.practics.model.User;
+
+import by.task4.practics.entity.User;
+import by.task4.practics.interfaces.UserDAO;
 
 @Repository
 public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO {
 
-	private static UserDAOImpl instance;
-
-	private UserDAOImpl() {
-	}
 
 	protected Class<User> getTClass() {
 		return User.class;
 
 	}
 
-	public static UserDAOImpl getInstance() {
-		if (instance == null) {
-			instance = new UserDAOImpl();
-			return instance;
-		}
-		return instance;
-	}
 
 }

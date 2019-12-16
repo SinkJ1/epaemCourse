@@ -1,6 +1,6 @@
-package by.senla.practics.interfaces;
+package by.task4.practics.interfaces;
 
-import by.senla.practics.model.User;
+import by.task4.practics.entity.User;
 
 public interface UserDAO extends GenericDAO<User>{
 	

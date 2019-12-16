@@ -1,4 +1,4 @@
-package by.senla.practics.interfaces;
+package by.task4.practics.interfaces;
 
 import java.util.List;
 import java.util.Map;
@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 
 public interface GenericDAO<T> {
 
-	void persist(EntityManager em, T object);
+	void add(EntityManager em, T object);
 
 	void update(EntityManager em, T object);
 
@@ -16,5 +16,4 @@ public interface GenericDAO<T> {
 
 	List<T> getAll(EntityManager em);
 
-	List<T> findByFiltr(Map<String, String> map, EntityManager createEntityManager);
 }

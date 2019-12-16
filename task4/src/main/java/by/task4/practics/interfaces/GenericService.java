@@ -1,11 +1,11 @@
-package by.senla.practics.interfaces;
+package by.task4.practics.interfaces;
 
 import java.util.List;
 import java.util.Map;
 
 public interface GenericService<T> {
 
-	void persist(T object);
+	void add(T object);
 
 	void update(T object);
 
@@ -14,7 +14,5 @@ public interface GenericService<T> {
 	T findById(Integer id);
 
 	List<T> getAll();
-	
-	List<T> findByFiltr(Map<String, String> map);
 
 }

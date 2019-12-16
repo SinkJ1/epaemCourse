@@ -1,13 +1,13 @@
-package by.senla.practics.DAO;
+package by.task4.practics.DAO;
 
 import java.util.List;
 import java.util.Map;
 import javax.persistence.EntityManager;
-import by.senla.practics.interfaces.GenericDAO;
+import by.task4.practics.interfaces.GenericDAO;
 
 public abstract class AbstractGenericDAO<T> implements GenericDAO<T> {
 
-	public void persist(EntityManager em, T object) {
+	public void add(EntityManager em, T object) {
 		em.persist(object);
 	}
 
@@ -25,21 +25,6 @@ public abstract class AbstractGenericDAO<T> implements GenericDAO<T> {
 
 	public List<T> getAll(EntityManager em) {
 		return em.createQuery("from" + " " + getTClass().getName() + "", getTClass()).getResultList();
-	}
-
-	public List<T> findByFiltr(Map<String, String> map, EntityManager em) {
-		Integer i = 0;
-		String whereValue = "";
-		for (Map.Entry<String, String> item : map.entrySet()) {
-			if (i >= 1) {
-				whereValue = whereValue + " and t." + item.getKey() + " = " + "'" + item.getValue() + "'";
-			} else {
-				whereValue = whereValue + " t." + item.getKey() + " = " + "'" + item.getValue() + "'";
-			}
-			i += 1;
-		}
-		return em.createQuery("from " + getTClass().getName() + " t where " + whereValue + "", getTClass())
-				.getResultList();
 	}
 
 	protected abstract Class<T> getTClass();

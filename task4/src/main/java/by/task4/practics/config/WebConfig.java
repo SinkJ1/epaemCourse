@@ -1,4 +1,4 @@
-package by.senla.practics.config;
+package by.task4.practics.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

@@ -1,4 +1,4 @@
-package by.senla.practics.controller;
+package by.task4.practics.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import by.senla.practics.interfaces.GenericService;
-import by.senla.practics.model.User;
+
+import by.task4.practics.entity.User;
+import by.task4.practics.interfaces.GenericService;
 
 @Controller
 @RequestMapping(value = "/users")

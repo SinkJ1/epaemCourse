@@ -1,4 +1,4 @@
-package by.senla.practics.connectionUtil;
+package by.task4.practics.connectionUtil;
 
 import javax.persistence.Persistence;
 import javax.persistence.EntityManager;
