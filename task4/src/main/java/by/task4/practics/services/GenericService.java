@@ -1,4 +1,4 @@
-package by.task4.practics.interfaces;
+package by.task4.practics.services;
 
 import java.util.List;
 import java.util.Map;

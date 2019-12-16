@@ -1,17 +1,12 @@
 package by.task4.practics.DAO;
 
-import java.util.List;
-import java.util.Map;
-
-import javax.persistence.EntityManager;
 
 import org.springframework.stereotype.Repository;
 
 import by.task4.practics.entity.User;
-import by.task4.practics.interfaces.UserDAO;
 
 @Repository
-public class UserDAOImpl extends AbstractGenericDAO<User> implements UserDAO {
+public class UserDAOImpl extends AbstractGenericDAO<User> implements GenericDAO<User> {
 
 
 	protected Class<User> getTClass() {

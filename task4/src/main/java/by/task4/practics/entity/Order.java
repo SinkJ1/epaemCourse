@@ -15,30 +15,34 @@ public class Order implements Serializable {
 	@Column(name = "order_id")
 	private int id;
 	
-	@Column
+	@Column(name = "user_id")
 	private User user;
 	
-	@Column
+	@Column(name = "sDate")
 	private Date startDate;
 	
-	@Column
+	@Column(name = "fDate")
 	private Date finishDate;
 	
-	@Column
+	@Column(name = "apartament_class")
 	private ApartamentClass apartamentClass;
 	
-	@Column
+	@Column(name = "number_id")
 	private Number number;
 	
-	@Column
+	@Column(name = "order_status")
 	private Status status;
+	
+	@Column(name = "cost")
+	private double cost;
 	
 
 	public Order() {
 	}
 
+	
 	public Order(int id, User user, Date startDate, Date finishDate, ApartamentClass apartamentClass, Number number,
-			Status status) {
+			Status status, double cost) {
 		this.id = id;
 		this.user = user;
 		this.startDate = startDate;
@@ -46,7 +50,9 @@ public class Order implements Serializable {
 		this.apartamentClass = apartamentClass;
 		this.number = number;
 		this.status = status;
+		this.cost = cost;
 	}
+
 
 	public int getId() {
 		return id;
@@ -104,12 +110,25 @@ public class Order implements Serializable {
 		this.status = status;
 	}
 
+	
+	
+	public double getCost() {
+		return cost;
+	}
+
+
+
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", user=" + user + ", startDate=" + startDate + ", finishDate=" + finishDate
-				+ ", apartamentClass=" + apartamentClass + ", number=" + number + ", status=" + status + "]";
+				+ ", apartamentClass=" + apartamentClass + ", number=" + number + ", status=" + status + ", cost="
+				+ cost + "]";
 	}
-	
-	
+
 	
 }

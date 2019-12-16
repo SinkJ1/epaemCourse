@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import by.task4.practics.entity.User;
-import by.task4.practics.interfaces.GenericService;
+import by.task4.practics.services.GenericService;
 import javassist.expr.NewArray;
 
 public abstract class AbstractController<T> {
