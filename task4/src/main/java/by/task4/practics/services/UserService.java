@@ -7,6 +7,9 @@ import by.task4.practics.entity.User;
 @Service
 public class UserService extends AbstractService<User> implements GenericService<User> {
 
-
+	@Override
+	protected Class<User> getTClass() {
+		return User.class;
+	}
 
 }

@@ -1,7 +1,6 @@
 package by.task4.practics.DAO;
 
 import java.util.List;
-import java.util.Map;
 import javax.persistence.EntityManager;
 
 public abstract class AbstractGenericDAO<T> implements GenericDAO<T> {

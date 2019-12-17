@@ -3,91 +3,48 @@ package by.task4.practics.services;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.hibernate.TransactionException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import by.task4.practics.DAO.GenericDAO;
 
 public abstract class AbstractService<T> implements GenericService<T> {
 
+	private final Logger log = LogManager.getLogger(getTClass());
 	
-	private final Logger log = LogManager.getLogger(UserService.class);
-
-	@Autowired
-	private EntityManagerFactory factory;
+	@PersistenceContext
+	private EntityManager entityManager;
 
 	@Autowired
 	private GenericDAO<T> dao;
-	
-	@Override
+
+	@Transactional
 	public void add(T object) {
-		EntityManager em = null;
-		try {
-			em = factory.createEntityManager();
-			em.getTransaction().begin();
-			dao.add(em, object);
-			em.getTransaction().commit();
-		} catch (TransactionException te) {
-			em.getTransaction().rollback();
-			log.error(te);
-			throw new RuntimeException(te);
-		} finally {
-			if (em != null) {
-				em.close();
-			}
-		}
+		dao.add(entityManager, object);
 	}
-
-	@Override
-	public void update(T object) {
-		EntityManager em = null;
-		try {
-			em = factory.createEntityManager();
-			em.getTransaction().begin();
-			dao.update(em, object);
-			em.getTransaction().commit();
-		} catch (TransactionException te) {
-			em.getTransaction().rollback();
-			log.error(te);
-			throw new RuntimeException(te);
-		} finally {
-			if (em != null) {
-				em.close();
-			}
-		}
-	}
-
-	@Override
+	
+	@Transactional
 	public void delete(Integer id) {
-		EntityManager em = null;
-		try {
-			em = factory.createEntityManager();
-			em.getTransaction().begin();
-			dao.delete(em, id);
-			em.getTransaction().commit();
-		} catch (TransactionException te) {
-			em.getTransaction().rollback();
-			log.error(te);
-			throw new RuntimeException(te);
-		} finally {
-			if (em != null) {
-				em.close();
-			}
-		}
+		dao.delete(entityManager, id);
 	}
-
-	@Override
+	
+	@Transactional
+	public void update(T object) {
+		dao.update(entityManager, object);
+	}
+	
 	public T findById(Integer id) {
-		return dao.findById(factory.createEntityManager(), id);
+		return dao.findById(entityManager, id);
 	}
 
-	@Override
 	public List<T> getAll() {
-		return dao.getAll(factory.createEntityManager());
+		return dao.getAll(entityManager);
 	}
+	
+	protected abstract Class<T> getTClass();
 
 }

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import by.task4.practics.entity.Number;
 
 @Controller
-@RequestMapping(value = "/number")
+@RequestMapping(value = "/numbers")
 public class NumberController extends AbstractController<Number>{
 
 }

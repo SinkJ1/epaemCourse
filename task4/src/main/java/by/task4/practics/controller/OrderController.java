@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import by.task4.practics.entity.Order;
 
 @Controller
-@RequestMapping(value = "/order")
+@RequestMapping(value = "/orders")
 public class OrderController extends AbstractController<Order>{
 
 }
