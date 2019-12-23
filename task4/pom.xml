@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>qwerty</groupId>
-  <artifactId>newVersion</artifactId>
+  <groupId>dsfgchvj</groupId>
+  <artifactId>sdfgbnm</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>newVersion Maven Webapp</name>
+  <name>sdfgbnm Maven Webapp</name>
   <url>http://maven.apache.org</url>
-  <dependencies>
+<dependencies>
     <!-- https://mvnrepository.com/artifact/org.apache.tomcat.maven/tomcat7-maven-plugin -->
 		<dependency>
 			<groupId>org.apache.tomcat.maven</groupId>
@@ -34,6 +34,7 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.9.9</version>
 		</dependency>
+		
 
 		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper -->
 		<dependency>
@@ -97,11 +98,30 @@
 			<version>5.1.8.RELEASE</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-hibernate -->
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>5.4.2.Final</version>
+		</dependency>
+				<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-hibernate</artifactId>
-			<version>1.2.9</version>
+			<artifactId>spring-webmvc</artifactId>
+			<version>5.1.8.RELEASE</version>
+		</dependency>
+
+			<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>5.4.2.Final</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>5.1.8.RELEASE</version>
 		</dependency>
 
 
@@ -162,8 +182,22 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+<!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5 -->
+<dependency>
+    <groupId>org.thymeleaf</groupId>
+    <artifactId>thymeleaf-spring5</artifactId>
+    <version>3.0.11.RELEASE</version>
+</dependency>
+
+		
+		
+		<dependency>
+    <groupId>javax.persistence</groupId>
+    <artifactId>persistence-api</artifactId>
+    <version>1.0.2</version>
+</dependency>
   </dependencies>
   <build>
-    <finalName>newVersion</finalName>
+    <finalName>sdfgbnm</finalName>
   </build>
 </project>

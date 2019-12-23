@@ -1,15 +1,9 @@
 package by.task4.practics.services;
 
-import org.springframework.stereotype.Service;
-
 import by.task4.practics.entity.User;
 
-@Service
-public class UserService extends AbstractService<User> implements GenericService<User> {
+public interface UserService extends GenericService<User>{
 
-	@Override
-	protected Class<User> getTClass() {
-		return User.class;
-	}
-
+	User findByLogin(User user);
+	
 }

@@ -1,7 +1,6 @@
 package by.task4.practics.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.*;
 
@@ -9,26 +8,32 @@ import javax.persistence.*;
 @Table(name = "t_order")
 public class Order implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "order_id")
 	private int id;
 	
-	@Column(name = "user_id")
+	@ManyToOne//(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
 	private User user;
 	
 	@Column(name = "sDate")
-	private Date startDate;
+	private String startDate;
 	
 	@Column(name = "fDate")
-	private Date finishDate;
+	private String finishDate;
 	
 	@Column(name = "apartament_class")
 	private ApartamentClass apartamentClass;
 	
-	@Column(name = "number_id")
+	@ManyToOne//(fetch = FetchType.LAZY)
+	@JoinColumn(name = "number_id")
 	private Number number;
+	
+	@Column(name = "place_count")
+	private PlaceCount desiredPlaceCount;
 	
 	@Column(name = "order_status")
 	private Status status;
@@ -41,8 +46,8 @@ public class Order implements Serializable {
 	}
 
 	
-	public Order(int id, User user, Date startDate, Date finishDate, ApartamentClass apartamentClass, Number number,
-			Status status, double cost) {
+	public Order(int id, User user, String startDate, String finishDate, ApartamentClass apartamentClass, Number number,
+			Status status,PlaceCount desiredPlaceCount, double cost) {
 		this.id = id;
 		this.user = user;
 		this.startDate = startDate;
@@ -51,6 +56,7 @@ public class Order implements Serializable {
 		this.number = number;
 		this.status = status;
 		this.cost = cost;
+		this.desiredPlaceCount = desiredPlaceCount;
 	}
 
 
@@ -70,19 +76,19 @@ public class Order implements Serializable {
 		this.user = user;
 	}
 
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getFinishDate() {
+	public String getFinishDate() {
 		return finishDate;
 	}
 
-	public void setFinishDate(Date finishDate) {
+	public void setFinishDate(String finishDate) {
 		this.finishDate = finishDate;
 	}
 
@@ -109,25 +115,31 @@ public class Order implements Serializable {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-
-	
 	
 	public double getCost() {
 		return cost;
 	}
-
-
 
 	public void setCost(double cost) {
 		this.cost = cost;
 	}
 
 
+	public PlaceCount getDesiredPlaceCount() {
+		return desiredPlaceCount;
+	}
+
+
+	public void setDesiredPlaceCount(PlaceCount desiredPlaceCount) {
+		this.desiredPlaceCount = desiredPlaceCount;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", user=" + user + ", startDate=" + startDate + ", finishDate=" + finishDate
-				+ ", apartamentClass=" + apartamentClass + ", number=" + number + ", status=" + status + ", cost="
-				+ cost + "]";
+				+ ", apartamentClass=" + apartamentClass + ", number=" + number + ", desiredPlaceCount="
+				+ desiredPlaceCount + ", status=" + status + ", cost=" + cost + "]";
 	}
 
 	

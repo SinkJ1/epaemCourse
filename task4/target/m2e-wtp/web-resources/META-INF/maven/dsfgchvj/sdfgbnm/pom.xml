@@ -34,6 +34,7 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.9.9</version>
 		</dependency>
+		
 
 		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper -->
 		<dependency>
@@ -181,6 +182,15 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+<!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5 -->
+<dependency>
+    <groupId>org.thymeleaf</groupId>
+    <artifactId>thymeleaf-spring5</artifactId>
+    <version>3.0.11.RELEASE</version>
+</dependency>
+
+		
+		
 		<dependency>
     <groupId>javax.persistence</groupId>
     <artifactId>persistence-api</artifactId>

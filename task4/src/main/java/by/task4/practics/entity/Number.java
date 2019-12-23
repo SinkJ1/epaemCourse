@@ -14,7 +14,7 @@ public class Number implements Serializable{
 	private int id;
 	
 	@Column(name = "place_count")
-	private int placeCount;
+	private PlaceCount placeCount;
 	
 	@Column(name = "apartament_class")
 	private ApartamentClass apartamentClass;
@@ -30,7 +30,7 @@ public class Number implements Serializable{
 	}
 	
 
-	public Number(int id, int placeCount, ApartamentClass apartamentClass, Status numberStatus,
+	public Number(int id, PlaceCount placeCount, ApartamentClass apartamentClass, Status numberStatus,
 			double numberCostByDay) {
 		this.id = id;
 		this.placeCount = placeCount;
@@ -48,11 +48,11 @@ public class Number implements Serializable{
 		this.id = id;
 	}
 
-	public int getPlaceCount() {
+	public PlaceCount getPlaceCount() {
 		return placeCount;
 	}
 
-	public void setPlaceCount(int placeCount) {
+	public void setPlaceCount(PlaceCount placeCount) {
 		this.placeCount = placeCount;
 	}
 

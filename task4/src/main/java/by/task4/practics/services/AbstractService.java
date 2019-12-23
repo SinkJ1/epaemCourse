@@ -12,15 +12,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import by.task4.practics.DAO.GenericDAO;
 
+
 public abstract class AbstractService<T> implements GenericService<T> {
 
-	private final Logger log = LogManager.getLogger(getTClass());
+	protected final Logger log = LogManager.getLogger(getTClass());
 	
 	@PersistenceContext
-	private EntityManager entityManager;
+	protected EntityManager entityManager;
 
 	@Autowired
-	private GenericDAO<T> dao;
+	protected GenericDAO<T> dao;
 
 	@Transactional
 	public void add(T object) {
@@ -37,10 +38,12 @@ public abstract class AbstractService<T> implements GenericService<T> {
 		dao.update(entityManager, object);
 	}
 	
+	@Transactional(readOnly = true)
 	public T findById(Integer id) {
 		return dao.findById(entityManager, id);
 	}
 
+	@Transactional(readOnly = true)
 	public List<T> getAll() {
 		return dao.getAll(entityManager);
 	}

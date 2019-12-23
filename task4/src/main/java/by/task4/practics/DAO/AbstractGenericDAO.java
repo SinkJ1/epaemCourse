@@ -3,8 +3,14 @@ package by.task4.practics.DAO;
 import java.util.List;
 import javax.persistence.EntityManager;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.hibernate.Hibernate;
+
 public abstract class AbstractGenericDAO<T> implements GenericDAO<T> {
 
+	protected final Logger log = LogManager.getLogger(getTClass());
+	
 	public void add(EntityManager em, T object) {
 		em.persist(object);
 	}

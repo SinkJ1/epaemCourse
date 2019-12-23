@@ -1,0 +1,91 @@
+/* чтобы после наведения на поля войти и регистрация появлялся курсор:палец */
+.menu-title:hover {
+	cursor: pointer;
+}
+
+/* секция меню (на всю ширину экрана) */
+.menu {
+    margin-top:10%;
+	display: flex;
+	justify-content: center;
+}
+
+/* окошко меню, уменьшенное до размеров контента */
+.menu-content {
+	background-color: white;
+	padding: 10px 20px;
+	border: 1px solid black;
+}
+
+/* убираю отображение у радиокнопок + скрываю тело меню*/
+.menu-content input[type="radio"],
+.menu-in,
+.menu-out {
+	display: none;
+}
+
+
+/* отображаю элемент меню, если у него состояние checked */
+#btn-in:checked~.menu-group>.menu-in,
+#btn-out:checked~.menu-group>.menu-out {
+	display: block;
+}
+
+/* Для изменения отображения НАЖАТЫХ радиокнопок Войти и Зарегистрир */
+.menu-content>input:checked+label {
+	position: relative;
+	color: #9147ff;
+	border: 1.5px solid #C0C0C0;
+	border-bottom: none;
+	top: 1.5px;
+	background: white;
+	/* z-index: 1; /* Отображаем поверх содержимого  */
+}
+
+.menu-content>.menu-head {
+	display: inline-flex;
+}
+
+/* объединение всех menu-info + close для задания рамки  */
+.menu-group {
+	border: 1.5px solid #C0C0C0;
+}
+
+.menu-info-label {
+	display: flex;
+	padding: 5px 0;
+	font-size: 0.8em;
+	font-weight: 700;
+}
+
+.menu-info {
+	padding: 10px 10px;
+}
+
+.menu-title {
+	padding: 5px 10px;
+}
+
+/* кнопки Войти и Зарегистрироваться в меню */
+.close {
+	display: flex;
+	justify-content: center;
+	border: 1px solid #B937F0;
+	color: white;
+	margin: 10px 10px 15px;
+	background: #9147ff;
+	font-size: 12pt;
+	font-weight: 600;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+.close:hover {
+	color: #FEFEFE;
+	background: #B00DF6;
+}
+
+.close:focus {
+	outline: none;
+}
+
