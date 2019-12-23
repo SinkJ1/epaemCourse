@@ -5,7 +5,7 @@ import java.util.Map;
 
 public interface GenericService<T> {
 
-	void add(T object);
+	T add(T object);
 
 	void update(T object);
 

@@ -1,8 +1,10 @@
 package by.task4.practics.entity;
 
-import by.task4.practics.enums.Role;
 import javax.persistence.*;
+
+
 import java.io.Serializable;
+import java.util.Set;
 
 
 @Entity
@@ -23,15 +25,18 @@ public class User implements Serializable {
 	private String login;
 	
 	@Column(name = "user_password")
-	private Integer password;
+	private String password;
 	
 	@Column(name = "user_role")
 	private Role role;
 
+	/*@OneToMany(fetch = FetchType.LAZY mappedBy = "user")
+	private Set<Order> order;*/
+	
 	public User() {
 	}
 	
-	public User(Integer id, String name, String login, Integer password, Role role) {
+	public User(Integer id, String name, String login, String password, Role role) {
 		this.id = id;
 		this.name = name;
 		this.login = login;
@@ -63,11 +68,11 @@ public class User implements Serializable {
 		this.login = login;
 	}
 
-	public Integer getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(Integer password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
@@ -78,6 +83,7 @@ public class User implements Serializable {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+
 
 	@Override
 	public String toString() {

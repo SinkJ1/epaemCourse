@@ -24,8 +24,9 @@ public abstract class AbstractService<T> implements GenericService<T> {
 	protected GenericDAO<T> dao;
 
 	@Transactional
-	public void add(T object) {
+	public T add(T object) {
 		dao.add(entityManager, object);
+		return object;
 	}
 	
 	@Transactional

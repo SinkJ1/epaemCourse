@@ -1,15 +1,10 @@
 package by.task4.practics.services;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
 import by.task4.practics.entity.Order;
 
-@Service
-public class OrderService extends AbstractService<Order> implements GenericService<Order> {
+public interface OrderService extends GenericService<Order>{
 
-	@Override
-	protected Class<Order> getTClass() {
-		return Order.class;
-	}
-
+	List<Order> getNotClosedOrders();
 }

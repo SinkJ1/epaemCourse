@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import by.task4.practics.services.GenericService;
@@ -33,7 +34,12 @@ public abstract class AbstractController<T> {
 	public ResponseEntity<List<T>> getAll() {
 		return ResponseEntity.ok(genericService.getAll());
 	}
-
+	
+	@PutMapping(produces = "application/json;charset=UTF-8")
+	public ResponseEntity<T> updateOne(@RequestBody T entity) {
+		genericService.update(entity);
+		return ResponseEntity.ok().build();
+	}
 
 
 }

@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import by.task4.practics.entity.Role;
 import by.task4.practics.entity.User;
-import by.task4.practics.enums.Role;
 import by.task4.practics.services.UserService;
 import by.task4.practics.services.UserServiceImpl;
 
@@ -41,17 +41,19 @@ public class UserController extends AbstractController<User> {
 	}
 
 	@PostMapping(value = "/registration", produces = "application/json;charset=UTF-8")
-	public ResponseEntity<List<String>> registration(@RequestBody User user) {
-		List<String> returnPage = new ArrayList<>();
-		returnPage.add("test.jsp");
-		return ResponseEntity.ok(returnPage);
+	public ResponseEntity<String> registration(@RequestBody User user) {
+		User bdUser = userService.add(user);
+		if(bdUser != null) {
+			return ResponseEntity.ok(findPage(bdUser));
+		}
+		return ResponseEntity.ok("");
 	}
 
 	private String findPage(User user) {
 
 		Map<Role, String> pages = new HashMap<Role, String>();
 		pages.put(Role.USER, "UserPage.jsp");
-		pages.put(Role.ADMIN, "UserPage.jsp");
+		pages.put(Role.ADMIN, "AdminPage.jsp");
 		return pages.get(user.getRole());
 	}
 

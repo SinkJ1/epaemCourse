@@ -16,48 +16,48 @@
         <!-- свойство name="inset" отвечает за то, чтобы состояние checked могло быть только у 1 меню -->
         <input type="radio" name="inset" id="btn-in">
         <!-- с помощью for связывается label c input по id -->
-        <label id = "btn-in" for="btn-in" class="menu-title menu-head">Войти</label>
+        <label id = "btn-in" for="btn-in" class="menu-title menu-head">Log in</label>
 
         <input type="radio" name="inset" id="btn-out">
-        <label id = "btn-out" for="btn-out" class="menu-title menu-head">Регистрация</label>
+        <label id = "btn-out" for="btn-out" class="menu-title menu-head">Registration</label>
 
         <div class="menu-group">
           <div class="menu-in">
             <div class="menu-info">
               <label>
-                <span class="menu-info-label">Имя пользователя</span>
+                <span class="menu-info-label">User Login</span>
                 <input id = "iLogin" type="text" size="40"><br>
               </label>
             </div>
             <div class="menu-info">
               <label>
-                <span class="menu-info-label">Пароль</span>
+                <span class="menu-info-label">Password</span>
                 <input id = "iPassword" type="password" size="40"><br>
               </label>
             </div>
-            <button class="close" onClick="login()">Войти</button>
+            <button class="close" onClick="login()">In</button>
           </div>
 
            <div  class="menu-out">
             <div class="menu-info">
               <label>
-                <span class="menu-info-label">Имя пользователя</span>
+                <span class="menu-info-label">User Login</span>
                 <input id = "login" type="text" size="40"><br>
               </label>
             </div>
             <div class="menu-info">
               <label>
-                <span class="menu-info-label">Пароль</span>
+                <span class="menu-info-label">Password</span>
                 <input id = "password" type="password" size="40"><br>
               </label>
             </div>
             <div class="menu-info">
               <label>
-                <span class="menu-info-label">Эл. почта</span>
-                <input id = "eMail" type="email" size="40"><br>
+                <span class="menu-info-label">User Name</span>
+                <input id = "name" type="text" size="40"><br>
               </label>
             </div>
-            <button class="close" onClick="registration()">Зарегистрироваться</button>
+            <button class="close" onClick="registration()">Registration</button>
           </div>
 
         </div>

@@ -4,7 +4,7 @@
 <html>
 
 <head>
-<title>UserPage</title>
+<title>AdminPage</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
   <style><%@include file="/css/UserPage.css"%></style>
 </head>
@@ -19,7 +19,6 @@
 
     <div id = "block">
         <div id = "grid">
-                <button id ="add" onclick="addRowInTable()" class = "Btn">add order</button>
                 <button id ="save" onClick = "saveOrder()" class = "Btn">save order</button>
                 <table id="table"></table>
         </div>
@@ -30,6 +29,6 @@
 
 
 </body>
-    <script><%@include file="/js/UserPage.js"%></script>
+    <script><%@include file="/js/AdminPage.js"%></script>
 
 </html>

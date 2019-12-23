@@ -19,7 +19,7 @@ function login(){
 function registration(){	
 	user = {
 			login :	 document.getElementById("login").value,
-			eMail : document.getElementById("eMail").value,
+			name : document.getElementById("name").value,
 			password : document.getElementById("password").value
 			};
 	post(JSON.stringify(user),"registration");
@@ -40,6 +40,8 @@ function post(json,value){
 	    	} else{	    		
 		    	alert("check input data");
 	    	}
+	    } else if(xhr.status == 500){
+	    	alert("check input data");
 	    }
 	}
 	xhr.send(json);

@@ -27,6 +27,10 @@
     border: 1px solid black;
 }
 
+.element{
+	 border: 1px solid black;
+}
+
 input[type='text'],
 input[type='date']{
     width: 100%;

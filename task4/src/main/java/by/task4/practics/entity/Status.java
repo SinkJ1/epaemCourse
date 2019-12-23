@@ -5,5 +5,6 @@ public enum Status {
 	open,
 	close,
 	aсcepted,
-	rejected
+	rejected,
+	waiting
 }
