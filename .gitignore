@@ -5,3 +5,5 @@
 *.properties
 *.prefs
 *.iml
+*.idea
+*.kotlin_module
